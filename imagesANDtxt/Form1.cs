@@ -85,7 +85,7 @@ namespace imagesANDtxt
         {
             _key = apikey.Text;
             string err = "Вы не ";
-            if (apikey.Text == "")
+            if (_key == "")
                 err += "вписали ваш apikey ";
             if (_path is null || _path == "")
             {
