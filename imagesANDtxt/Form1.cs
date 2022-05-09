@@ -9,7 +9,6 @@ namespace imagesANDtxt
     public partial class Form1 : Form
     {
         private string _path;
-        private bool _IU;
         private int _lang = -1;
         private string _url = "https://api.ocr.space/parse/image";
         private string _key;
@@ -133,7 +132,6 @@ namespace imagesANDtxt
                 {
                     _path = path.Text;
                     image.Image = Image.FromFile(_path);
-                    _IU = true;
                 }
                 else
                 {
@@ -142,7 +140,6 @@ namespace imagesANDtxt
                         _path = path.Text;
                         string nameOfPic = _path.Split('/').Last();
                         string dir = AppDomain.CurrentDomain.BaseDirectory;
-                        _IU = false;
                         if (File.Exists(dir + "\\" + nameOfPic))
                             return;
                         using (WebClient client = new WebClient())
@@ -159,7 +156,6 @@ namespace imagesANDtxt
                 _path = openFileDialog1.FileName;
                 path.Text = _path;
                 image.Image = Image.FromFile(_path);
-                _IU = true;
             }
         }
     }
